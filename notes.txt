@@ -1,0 +1,89 @@
+
+
+Clear Screen and Start Over
+---------------------------
+1. Stop NIFI
+2. delete $NIFI_HOME/conf/flow.xml.gz
+3. Restart NFI
+
+
+
+
+Use Cases
+---------------------
+1. CSV Ingestion: Import CSV File(s) to DB
+2. DB incremental updates to HDFS as JSON for Spark/Flink Streaming
+
+
+Generate Data Stream
+--------------------
+1. GenerateFlowFile Processor
+2. ReplaceText Processor
+
+
+
+Templates
+Import Templates from Web:
+https://cwiki.apache.org/confluence/display/NIFI/Example+Dataflow+Templates
+CsvToJSON.xml
+Download XML file
+Upload/Import Template in UI
+To Use: Drag Template icon to work area
+
+
+CSV to JSON Template
+==================
+GenerateFlowFile
+ReplaceText	(?s:^.*$)   a,b,c,d
+ExtractText     (.+),(.+),(.+),(.+)
+ReplaceText	(“field1”: “${csv.1}”, “field2”: “${csv.2}”, “field3”:”${csv.3}”,”field4”:”${csv.4}”
+UpdateAttribute
+
+
+Regular Expression Notes
+------------------------
+//  Nifi: (?s:^.*$)
+// Modes:
+// (?i) = case insensitive mode
+// (?s) = single line mode: . matches all characters, includine line breaks
+// (?m) = multi line mode
+// if (response.matches("(?s)(?i).*</(\\s)*head(\\s)*>.*") == true) {}
+
+
+DBConnection Pool
+-----------------
+jdbc:derby://localhost:1527/rueggerllc;create=false
+org.apache.derby.jdbc.ClientDriver
+C:/NIFI/drivers/derbyclient-10.10.1.1.jar
+
+ExtractText RegEx:
+------------------
+FAIL (^("ID": (.+))?),(.*)
+FAIL ({"ID": (.+),)?
+FAIL "ID":(\w+)(.*?),
+WORKS ^{"ID":\s+(.*),
+
+Course:
+a,b,c,d
+csv:  (.+),(.+),(.+),(.+)
+
+
+Sample Data:
+{"ID": 10649, "ORDER_ID": 85, "PRODUCT_ID": "JT8382X38", "CUSTOMER_ID": 57, 
+ "QUANTITY": 2, "ORDER_DATE": "2018-02-17 11:09:56.217", "REGION": "Far East", 
+ "NOTES": "Repeat Purchase", "AMOUNT": "7997.48", "STATUS": 105}
+ 
+{"ID": 10790, "ORDER_ID": 80}
+
+ANSWER:
+"ID":(.*?),
+
+
+
+Process Groups
+---------------
+
+
+
+
+

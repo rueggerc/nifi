@@ -1,0 +1,616 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.1">
+  <description>Reads from Database and create JSON Files</description>
+  <groupId>0e54ecd7-0161-1000-ba79-56e265dcc302</groupId>
+  <name>DBToJSON</name>
+  <snippet>
+    <connections>
+      <id>a1aa19f0-af58-3037-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>f61062d8-ef8a-3f3c-0000-000000000000</groupId>
+        <id>5f110927-8325-3b27-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>split</selectedRelationships>
+      <source>
+        <groupId>f61062d8-ef8a-3f3c-0000-000000000000</groupId>
+        <id>bbaa3f5f-d501-3b69-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>a2ac95f4-e90e-3b5e-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>f61062d8-ef8a-3f3c-0000-000000000000</groupId>
+        <id>bbaa3f5f-d501-3b69-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <prioritizers>org.apache.nifi.prioritizer.FirstInFirstOutPrioritizer</prioritizers>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>f61062d8-ef8a-3f3c-0000-000000000000</groupId>
+        <id>95d78fa9-859e-3074-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>6d3d7b5d-60e1-3e6e-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>f61062d8-ef8a-3f3c-0000-000000000000</groupId>
+        <id>ebbeff31-3007-3922-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>f61062d8-ef8a-3f3c-0000-000000000000</groupId>
+        <id>5f110927-8325-3b27-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <controllerServices>
+      <id>5bf3ce6f-1ac6-36c8-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <bundle>
+        <artifact>nifi-dbcp-service-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.4.0</version>
+      </bundle>
+      <comments></comments>
+      <descriptors>
+        <entry>
+          <key>Validation-query</key>
+          <value>
+            <name>Validation-query</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Database Connection URL</key>
+          <value>
+            <name>Database Connection URL</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Max Wait Time</key>
+          <value>
+            <name>Max Wait Time</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Database Driver Class Name</key>
+          <value>
+            <name>Database Driver Class Name</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Database User</key>
+          <value>
+            <name>Database User</name>
+          </value>
+        </entry>
+        <entry>
+          <key>database-driver-locations</key>
+          <value>
+            <name>database-driver-locations</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Max Total Connections</key>
+          <value>
+            <name>Max Total Connections</name>
+          </value>
+        </entry>
+        <entry>
+          <key>Password</key>
+          <value>
+            <name>Password</name>
+          </value>
+        </entry>
+      </descriptors>
+      <name>DBCPConnectionPool</name>
+      <persistsState>false</persistsState>
+      <properties>
+        <entry>
+          <key>Validation-query</key>
+        </entry>
+        <entry>
+          <key>Database Connection URL</key>
+          <value>jdbc:derby://localhost:1527/rueggerllc;create=false</value>
+        </entry>
+        <entry>
+          <key>Max Wait Time</key>
+          <value>500 millis</value>
+        </entry>
+        <entry>
+          <key>Database Driver Class Name</key>
+          <value>org.apache.derby.jdbc.ClientDriver</value>
+        </entry>
+        <entry>
+          <key>Database User</key>
+          <value>chris</value>
+        </entry>
+        <entry>
+          <key>database-driver-locations</key>
+          <value>C:/NIFI/drivers/derbyclient-10.10.1.1.jar</value>
+        </entry>
+        <entry>
+          <key>Max Total Connections</key>
+          <value>8</value>
+        </entry>
+        <entry>
+          <key>Password</key>
+        </entry>
+      </properties>
+      <state>ENABLED</state>
+      <type>org.apache.nifi.dbcp.DBCPConnectionPool</type>
+    </controllerServices>
+    <processors>
+      <id>95d78fa9-859e-3074-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <position>
+        <x>3.894372912327526E-5</x>
+        <y>0.0</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.4.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Table Name</key>
+            <value>
+              <name>Table Name</name>
+            </value>
+          </entry>
+          <entry>
+            <key>db-fetch-db-type</key>
+            <value>
+              <name>db-fetch-db-type</name>
+            </value>
+          </entry>
+          <entry>
+            <key>dbf-default-precision</key>
+            <value>
+              <name>dbf-default-precision</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Max Wait Time</key>
+            <value>
+              <name>Max Wait Time</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Database Connection Pooling Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.dbcp.DBCPService</identifiesControllerService>
+              <name>Database Connection Pooling Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Maximum-value Columns</key>
+            <value>
+              <name>Maximum-value Columns</name>
+            </value>
+          </entry>
+          <entry>
+            <key>dbf-user-logical-types</key>
+            <value>
+              <name>dbf-user-logical-types</name>
+            </value>
+          </entry>
+          <entry>
+            <key>qdbt-max-rows</key>
+            <value>
+              <name>qdbt-max-rows</name>
+            </value>
+          </entry>
+          <entry>
+            <key>qdbt-max-frags</key>
+            <value>
+              <name>qdbt-max-frags</name>
+            </value>
+          </entry>
+          <entry>
+            <key>dbf-default-scale</key>
+            <value>
+              <name>dbf-default-scale</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Fetch Size</key>
+            <value>
+              <name>Fetch Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Columns to Return</key>
+            <value>
+              <name>Columns to Return</name>
+            </value>
+          </entry>
+          <entry>
+            <key>db-fetch-where-clause</key>
+            <value>
+              <name>db-fetch-where-clause</name>
+            </value>
+          </entry>
+          <entry>
+            <key>dbf-normalize</key>
+            <value>
+              <name>dbf-normalize</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Table Name</key>
+            <value>CUSTOMER_ORDER</value>
+          </entry>
+          <entry>
+            <key>db-fetch-db-type</key>
+            <value>Generic</value>
+          </entry>
+          <entry>
+            <key>dbf-default-precision</key>
+            <value>10</value>
+          </entry>
+          <entry>
+            <key>Max Wait Time</key>
+            <value>0 seconds</value>
+          </entry>
+          <entry>
+            <key>Database Connection Pooling Service</key>
+            <value>5bf3ce6f-1ac6-36c8-0000-000000000000</value>
+          </entry>
+          <entry>
+            <key>Maximum-value Columns</key>
+            <value>ID</value>
+          </entry>
+          <entry>
+            <key>dbf-user-logical-types</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>qdbt-max-rows</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>qdbt-max-frags</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>dbf-default-scale</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Fetch Size</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Columns to Return</key>
+          </entry>
+          <entry>
+            <key>db-fetch-where-clause</key>
+          </entry>
+          <entry>
+            <key>dbf-normalize</key>
+            <value>false</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>QueryDatabaseTable</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <state>STOPPED</state>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.QueryDatabaseTable</type>
+    </processors>
+    <processors>
+      <id>bbaa3f5f-d501-3b69-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>241.1226667361919</y>
+      </position>
+      <bundle>
+        <artifact>nifi-avro-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.4.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Split Strategy</key>
+            <value>
+              <name>Split Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Output Strategy</key>
+            <value>
+              <name>Output Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Transfer Metadata</key>
+            <value>
+              <name>Transfer Metadata</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Output Size</key>
+            <value>
+              <name>Output Size</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Split Strategy</key>
+            <value>Record</value>
+          </entry>
+          <entry>
+            <key>Output Strategy</key>
+            <value>Datafile</value>
+          </entry>
+          <entry>
+            <key>Transfer Metadata</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Output Size</key>
+            <value>1</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>SplitAvro</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>original</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>split</name>
+      </relationships>
+      <state>STOPPED</state>
+      <style></style>
+      <type>org.apache.nifi.processors.avro.SplitAvro</type>
+    </processors>
+    <processors>
+      <id>ebbeff31-3007-3922-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <position>
+        <x>7.267907790264871E-5</x>
+        <y>689.7680082532568</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.4.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Group</key>
+            <value>
+              <name>Group</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Owner</key>
+            <value>
+              <name>Owner</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Create Missing Directories</key>
+            <value>
+              <name>Create Missing Directories</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Permissions</key>
+            <value>
+              <name>Permissions</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Maximum File Count</key>
+            <value>
+              <name>Maximum File Count</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Modified Time</key>
+            <value>
+              <name>Last Modified Time</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Directory</key>
+            <value>
+              <name>Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>
+              <name>Conflict Resolution Strategy</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Group</key>
+          </entry>
+          <entry>
+            <key>Owner</key>
+          </entry>
+          <entry>
+            <key>Create Missing Directories</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>Permissions</key>
+          </entry>
+          <entry>
+            <key>Maximum File Count</key>
+          </entry>
+          <entry>
+            <key>Last Modified Time</key>
+          </entry>
+          <entry>
+            <key>Directory</key>
+            <value>C:\NIFI\db_json</value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>replace</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutFile</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <state>STOPPED</state>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.PutFile</type>
+    </processors>
+    <processors>
+      <id>5f110927-8325-3b27-0000-000000000000</id>
+      <parentGroupId>f61062d8-ef8a-3f3c-0000-000000000000</parentGroupId>
+      <position>
+        <x>6.504712109745014E-5</x>
+        <y>465.44534095973955</y>
+      </position>
+      <bundle>
+        <artifact>nifi-avro-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.4.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>JSON container options</key>
+            <value>
+              <name>JSON container options</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Wrap Single Record</key>
+            <value>
+              <name>Wrap Single Record</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Avro schema</key>
+            <value>
+              <name>Avro schema</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>JSON container options</key>
+            <value>array</value>
+          </entry>
+          <entry>
+            <key>Wrap Single Record</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>Avro schema</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>ConvertAvroToJSON</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <state>STOPPED</state>
+      <style></style>
+      <type>org.apache.nifi.processors.avro.ConvertAvroToJSON</type>
+    </processors>
+  </snippet>
+  <timestamp>02/17/2018 06:24:39 EST</timestamp>
+</template>
