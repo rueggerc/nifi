@@ -12,7 +12,24 @@ Clear Screen and Start Over
 Use Cases
 ---------------------
 1. CSV Ingestion: Import CSV File(s) to DB
+
+
 2. DB incremental updates to HDFS as JSON for Spark/Flink Streaming
+QueryDatabaseTable
+SplitAvro
+ConvertAvroToJSON
+
+PATH1:
+EvaluateJsonPath
+UpdateAttribute (filename)
+PutFile
+
+PATH2:	
+ExtractText
+UpdateAttribute (filename)
+PutFile
+
+
 
 
 Generate Data Stream
