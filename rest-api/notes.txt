@@ -1,0 +1,5 @@
+curl 'http://localhost:8080/nifi-api/processors/2a817541-0158-1000-771e-93ca6d670429' 
+-X PUT 
+-H 'Content-Type: application/json' 
+-H 'Accept: application/json, text/javascript, */*; q=0.01' 
+--data-binary '{"revision":{"clientId":"2a81087c-0158-1000-1362-5452a699615c","version":3},"component":{"id":"2a817541-0158-1000-771e-93ca6d670429","state":"RUNNING"}}'
